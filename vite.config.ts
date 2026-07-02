@@ -1,15 +1,24 @@
-import { cpSync, readdirSync } from "node:fs";
-import { isAbsolute, join, resolve } from "node:path";
+/// <reference types="vitest/config" />
+import { cpSync, existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import path, { isAbsolute, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import tailwindcss from "@tailwindcss/vite";
+import { playwright } from "@vitest/browser-playwright";
 import { defineConfig, type Plugin } from "vite";
 import dts from "vite-plugin-dts";
 
+const dirname = typeof __dirname !== "undefined" ? __dirname : path.dirname(fileURLToPath(import.meta.url));
+
+// More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 const root = import.meta.dirname;
 const src = resolve(root, "src");
 
 /** Recursively collect `.ts`/`.tsx` source files under a directory (skipping declarations). */
 function collect(dir: string): string[] {
-  return readdirSync(join(src, dir), { withFileTypes: true }).flatMap((entry) => {
+  return readdirSync(join(src, dir), {
+    withFileTypes: true,
+  }).flatMap((entry) => {
     const rel = join(dir, entry.name);
     if (entry.isDirectory()) return collect(rel);
     if (/\.tsx?$/.test(entry.name) && !entry.name.endsWith(".d.ts")) return [rel];
@@ -29,7 +38,6 @@ const sourceEntries = Object.fromEntries(
     collect(dir).map((file) => [file.replace(/\.tsx?$/, ""), resolve(src, file)] as const),
   ),
 );
-
 const entries = {
   index: resolve(src, "index.ts"),
   "types/index": resolve(src, "types/index.ts"),
@@ -45,14 +53,64 @@ function copyRawStyles(): Plugin {
   return {
     name: "copy-raw-styles",
     closeBundle() {
-      cpSync(resolve(src, "styles"), resolve(root, "dist/styles"), { recursive: true });
+      cpSync(resolve(src, "styles"), resolve(root, "dist/styles"), {
+        recursive: true,
+      });
     },
   };
 }
 
+/**
+ * The emitted `.d.ts` files use relative specifiers that don't resolve under Node's ESM
+ * ("nodenext") algorithm: extensionless imports (`from './chart'`), source-style extensions
+ * (`from './avatar.tsx'`), and directory imports (`from '../../types'`). The runtime JS is
+ * already correct, so rewrite each declaration specifier to point at the real emitted file
+ * (`./chart.js`, `../../types/index.js`, …) so type resolution matches and passes
+ * `@arethetypeswrong/cli`.
+ */
+function fixDtsExtensions(): Plugin {
+  // Resolve a relative specifier against the file's directory to the actual emitted output.
+  const resolveSpec = (fileDir: string, spec: string): string | null => {
+    const base = spec.replace(/\.(tsx?|jsx?|mjs|cjs)$/, "");
+    const abs = resolve(fileDir, base);
+    if (existsSync(`${abs}.d.ts`)) return `${base}.js`; // sibling module -> ./x.js
+    if (existsSync(join(abs, "index.d.ts"))) return `${base}/index.js`; // directory -> ./x/index.js
+    return null; // leave untouched (asset, external, or unknown)
+  };
+
+  const fix = (code: string, fileDir: string) =>
+    code.replace(/(\bfrom\s*|\bimport\s*\(\s*)(['"])(\.\.?\/[^'"]+)\2/g, (m, pre, quote, spec) => {
+      if (/\.(css|json)$/.test(spec)) return m; // never touch asset imports
+      const rewritten = resolveSpec(fileDir, spec);
+      return rewritten ? `${pre}${quote}${rewritten}${quote}` : m;
+    });
+
+  const walk = (dir: string): string[] =>
+    readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+      const full = join(dir, entry.name);
+      if (entry.isDirectory()) return walk(full);
+      return entry.name.endsWith(".d.ts") ? [full] : [];
+    });
+
+  return {
+    name: "fix-dts-extensions",
+    // Run after vite-plugin-dts has written the declarations.
+    enforce: "post",
+    closeBundle() {
+      const distDir = resolve(root, "dist");
+      for (const file of walk(distDir)) {
+        const code = readFileSync(file, "utf8");
+        const fixed = fix(code, path.dirname(file));
+        if (fixed !== code) writeFileSync(file, fixed);
+      }
+    },
+  };
+}
 export default defineConfig({
   resolve: {
-    alias: { "@": src },
+    alias: {
+      "@": src,
+    },
   },
   plugins: [
     tailwindcss(),
@@ -65,6 +123,7 @@ export default defineConfig({
       staticImport: true,
     }),
     copyRawStyles(),
+    fixDtsExtensions(),
   ],
   build: {
     outDir: "dist",
@@ -72,8 +131,9 @@ export default defineConfig({
     cssCodeSplit: true,
     lib: {
       entry: entries,
-      formats: ["es", "cjs"],
-      fileName: (format, entryName) => `${entryName}.${format === "es" ? "js" : "cjs"}`,
+      // ESM-only: the package is `"type": "module"`, so we ship a single ES build.
+      formats: ["es"],
+      fileName: (_format, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
       // Bundle only our own source; leave every bare (node_modules) import external.
@@ -83,5 +143,32 @@ export default defineConfig({
         chunkFileNames: "chunks/[name]-[hash].js",
       },
     },
+  },
+  test: {
+    projects: [
+      {
+        extends: true,
+        plugins: [
+          // The plugin will run tests for the stories defined in your Storybook config
+          // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+          storybookTest({
+            configDir: path.join(dirname, ".storybook"),
+          }),
+        ],
+        test: {
+          name: "storybook",
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: playwright({}),
+            instances: [
+              {
+                browser: "chromium",
+              },
+            ],
+          },
+        },
+      },
+    ],
   },
 });
