@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, userEvent, within } from "storybook/test";
-import { Radio, RadioField, RadioGroup } from "@/components/ui/radio";
+import { Radio, RadioGroup } from "@/components/ui/radio";
 
 const meta = {
   title: "UI/Radio",
@@ -10,15 +10,9 @@ const meta = {
     "aria-label": "Subscription plan",
     children: (
       <>
-        <RadioField value="free">
-          <Radio>Free</Radio>
-        </RadioField>
-        <RadioField value="pro">
-          <Radio>Pro</Radio>
-        </RadioField>
-        <RadioField value="enterprise">
-          <Radio>Enterprise</Radio>
-        </RadioField>
+        <Radio value="free">Free</Radio>
+        <Radio value="pro">Pro</Radio>
+        <Radio value="enterprise">Enterprise</Radio>
       </>
     ),
   },

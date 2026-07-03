@@ -7,6 +7,7 @@ export * from "./components/composite/render/pagination-render.tsx";
 export * from "./components/composite/render/sidebar-items-render.tsx";
 export * from "./components/composite/render/svg-html-render.tsx";
 export * from "./components/composite/resource-clear-filters.tsx";
+export * from "./components/composite/resource-filters.tsx";
 export * from "./components/composite/resource-table.tsx";
 export * from "./components/shared/badge-styles.ts";
 export * from "./components/shared/button-styles.ts";

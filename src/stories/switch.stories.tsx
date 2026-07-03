@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, within } from "storybook/test";
-import { Switch, SwitchField } from "@/components/ui/switch";
+import { Switch } from "@/components/ui/switch";
 
 const meta = {
   title: "UI/Switch",
-  component: SwitchField,
+  component: Switch,
   tags: ["autodocs"],
   args: {
-    children: <Switch>Enable notifications</Switch>,
+    children: "Enable notifications",
   },
-} satisfies Meta<typeof SwitchField>;
+} satisfies Meta<typeof Switch>;
 
 export default meta;
 

@@ -9,7 +9,7 @@ import type {
 import { TreeItemContent, TreeItem as TreeItemPrimitive, Tree as TreePrimitive } from "react-aria-components/Tree";
 import { twJoin, twMerge } from "tailwind-merge";
 import { cx } from "@/lib/primitive";
-import { Checkbox, CheckboxField } from "./checkbox";
+import { Checkbox } from "./checkbox";
 
 const Tree = <T extends object>({ className, ...props }: TreeProps<T>) => {
   return (
@@ -58,9 +58,7 @@ const TreeContent = ({ className, children, ...props }: TreeContentProps) => {
         <div className={twMerge("relative flex w-full min-w-0 items-center gap-x-1 truncate text-sm/6", className)}>
           {values.allowsDragging && <Button className="sr-only" slot="drag" />}
           {values.selectionMode === "multiple" && values.selectionBehavior === "toggle" && (
-            <CheckboxField className="gap-x-0" slot="selection">
-              <Checkbox className="col-span-1" />
-            </CheckboxField>
+            <Checkbox className="[--indicator-mt:0] sm:[--indicator-mt:0]" slot="selection" />
           )}
           <div
             className={twJoin(
