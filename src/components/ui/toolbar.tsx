@@ -120,5 +120,5 @@ function ToolbarRight({ className, ...props }: GroupProps) {
   return <ToolbarGroup {...props} className={cx("flex grow justify-end", className)} />;
 }
 
-export type { ToggleItemProps, ToolbarGroupProps, ToolbarLeft, ToolbarProps, ToolbarRight, ToolbarSeparatorProps };
-export { Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator };
+export type { ToggleItemProps, ToolbarGroupProps, ToolbarProps, ToolbarSeparatorProps };
+export { Toolbar, ToolbarGroup, ToolbarItem, ToolbarLeft, ToolbarRight, ToolbarSeparator };
