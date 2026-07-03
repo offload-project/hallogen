@@ -24,6 +24,9 @@
   --color-bg: var(--bg);
   --color-fg: var(--fg);
 
+  --color-card: var(--card);
+  --color-card-fg: var(--card-fg);
+
   --color-border: var(--border);
   --color-input: var(--input);
 

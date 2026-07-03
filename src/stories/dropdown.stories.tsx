@@ -17,6 +17,9 @@ const meta = {
         <DropdownDescription>Make changes to this item</DropdownDescription>
       </DropdownItem>
       <DropdownSeparator />
+      <DropdownItem id="archive" variant="warning">
+        Archive
+      </DropdownItem>
       <DropdownItem id="delete" variant="danger">
         Delete
       </DropdownItem>
