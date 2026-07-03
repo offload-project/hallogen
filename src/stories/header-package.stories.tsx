@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { HeaderAction, HeaderPackage } from "@/components/composite/header";
+import { HeaderAction, HeaderPackage } from "@/components/composite/header-package.tsx";
 import { Button } from "@/components/ui/button";
 
 const meta = {

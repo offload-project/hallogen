@@ -286,9 +286,9 @@
       "types": "./dist/components/ui/grid-list.d.ts",
       "import": "./dist/components/ui/grid-list.js"
     },
-    "./header": {
-      "types": "./dist/components/composite/header.d.ts",
-      "import": "./dist/components/composite/header.js"
+    "./header-package": {
+      "types": "./dist/components/composite/header-package.d.ts",
+      "import": "./dist/components/composite/header-package.js"
     },
     "./heading": {
       "types": "./dist/components/ui/heading.d.ts",
