@@ -21,8 +21,36 @@ export const Selected: Story = {
   args: { defaultSelected: true },
 };
 
-export const Outline: Story = {
-  args: { variant: "outline" },
+export const Variants: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Toggle {...args} variant="outline">
+        Outline
+      </Toggle>
+      <Toggle {...args} variant="plain">
+        Plain
+      </Toggle>
+    </div>
+  ),
+};
+
+export const Sizes: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Toggle {...args} size="xs">
+        xs
+      </Toggle>
+      <Toggle {...args} size="sm">
+        sm
+      </Toggle>
+      <Toggle {...args} size="md">
+        md
+      </Toggle>
+      <Toggle {...args} size="lg">
+        lg
+      </Toggle>
+    </div>
+  ),
 };
 
 export const Disabled: Story = {

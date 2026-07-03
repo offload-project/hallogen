@@ -50,7 +50,7 @@ export const toggleStyles = tv({
     },
   },
   defaultVariants: {
-    variant: "plain",
+    variant: "outline",
     size: "md",
     isCircle: false,
   },

@@ -26,6 +26,9 @@ export const Default: Story = {};
 export const Variants: Story = {
   render: (args) => (
     <div className="flex flex-col gap-3">
+      <Note {...args} variant="default">
+        Default message.
+      </Note>
       <Note {...args} variant="info">
         Informational message.
       </Note>

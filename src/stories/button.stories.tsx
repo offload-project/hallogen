@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import { PlusIcon } from "lucide-react";
 import { expect, fn, userEvent, within } from "storybook/test";
 import { Button } from "@/components/ui/button";
 
@@ -12,11 +13,11 @@ const meta = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "secondary", "danger", "outline", "plain"],
+      options: ["primary", "secondary", "warning", "danger", "success", "outline", "plain"],
     },
     size: {
       control: "select",
-      options: ["xs", "sm", "md", "lg"],
+      options: ["xs", "sm", "md", "lg", "sq-xs", "sq-sm", "sq-md", "sq-lg"],
     },
     isDisabled: { control: "boolean" },
   },
@@ -37,8 +38,14 @@ export const Variants: Story = {
       <Button {...args} variant="secondary">
         Secondary
       </Button>
+      <Button {...args} variant="warning">
+        Warning
+      </Button>
       <Button {...args} variant="danger">
         Danger
+      </Button>
+      <Button {...args} variant="success">
+        Success
       </Button>
       <Button {...args} variant="outline">
         Outline
@@ -64,6 +71,25 @@ export const Sizes: Story = {
       </Button>
       <Button {...args} size="lg">
         lg
+      </Button>
+    </div>
+  ),
+};
+
+export const IconSizes: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <Button {...args} size="sq-xs" aria-label="Add (xs)">
+        <PlusIcon />
+      </Button>
+      <Button {...args} size="sq-sm" aria-label="Add (sm)">
+        <PlusIcon />
+      </Button>
+      <Button {...args} size="sq-md" aria-label="Add (md)">
+        <PlusIcon />
+      </Button>
+      <Button {...args} size="sq-lg" aria-label="Add (lg)">
+        <PlusIcon />
       </Button>
     </div>
   ),
