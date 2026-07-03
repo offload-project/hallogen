@@ -1,3 +1,4 @@
+import type { ComponentProps } from "react";
 import {
   SwitchButton,
   type SwitchButtonProps,
@@ -8,6 +9,7 @@ import { twJoin, twMerge } from "tailwind-merge";
 import { Label } from "@/components/ui/field";
 import { cx } from "@/lib/primitive";
 
+/** The field wrapper that owns the switch's form input and state. Compose with `SwitchControl`. */
 export function SwitchField({ className, ...props }: SwitchFieldProps) {
   return (
     <SwitchFieldPrimitive
@@ -22,7 +24,8 @@ export function SwitchField({ className, ...props }: SwitchFieldProps) {
   );
 }
 
-export function Switch({ children, className, ...props }: SwitchButtonProps) {
+/** The clickable area of a switch (indicator + label). Must be rendered inside a `SwitchField`. */
+export function SwitchControl({ children, className, ...props }: SwitchButtonProps) {
   return (
     <SwitchButton
       className={cx(
@@ -64,9 +67,7 @@ export function Switch({ children, className, ...props }: SwitchButtonProps) {
           {typeof children === "function" ? (
             children(values)
           ) : typeof children === "string" ? (
-            <Label elementType="span" data-slot="control-label">
-              {children}
-            </Label>
+            <SwitchLabel>{children}</SwitchLabel>
           ) : (
             children
           )}
@@ -74,4 +75,17 @@ export function Switch({ children, className, ...props }: SwitchButtonProps) {
       )}
     </SwitchButton>
   );
+}
+
+/** A self-contained switch: a `SwitchField` (owns the input) wrapping a `SwitchControl`. */
+export function Switch({ children, className, ...props }: SwitchFieldProps) {
+  return (
+    <SwitchField {...props}>
+      <SwitchControl className={className}>{children}</SwitchControl>
+    </SwitchField>
+  );
+}
+
+export function SwitchLabel(props: ComponentProps<typeof Label>) {
+  return <Label elementType="span" data-slot="control-label" {...props} />;
 }

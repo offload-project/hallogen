@@ -1,22 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { expect, fn, userEvent, within } from "storybook/test";
-import { Checkbox, CheckboxField } from "@/components/ui/checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const LABEL = "Accept terms and conditions";
 
 const meta = {
   title: "UI/Checkbox",
-  component: CheckboxField,
+  component: Checkbox,
   tags: ["autodocs"],
   args: {
-    children: null,
+    children: LABEL,
   },
-  render: (args) => (
-    <CheckboxField {...args}>
-      <Checkbox>{LABEL}</Checkbox>
-    </CheckboxField>
-  ),
-} satisfies Meta<typeof CheckboxField>;
+} satisfies Meta<typeof Checkbox>;
 
 export default meta;
 

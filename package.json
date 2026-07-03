@@ -502,6 +502,10 @@
       "types": "./dist/components/composite/resource-clear-filters.d.ts",
       "import": "./dist/components/composite/resource-clear-filters.js"
     },
+    "./resource-filters": {
+      "types": "./dist/components/composite/resource-filters.d.ts",
+      "import": "./dist/components/composite/resource-filters.js"
+    },
     "./resource-table": {
       "types": "./dist/components/composite/resource-table.d.ts",
       "import": "./dist/components/composite/resource-table.js"

@@ -11,7 +11,7 @@ import {
 import { Text, type TextProps } from "react-aria-components/Text";
 import { twMerge } from "tailwind-merge";
 import { cx } from "@/lib/primitive";
-import { Checkbox, CheckboxField } from "./checkbox";
+import { Checkbox } from "./checkbox";
 
 const GridList = <T extends object>({ className, ...props }: GridListProps<T>) => (
   <GridListPrimitive
@@ -67,9 +67,7 @@ const GridListItem = ({ className, children, ...props }: GridListItemProps) => {
           )}
 
           {values.selectionMode === "multiple" && values.selectionBehavior === "toggle" && (
-            <CheckboxField className="gap-x-0" slot="selection">
-              <Checkbox className="col-span-1" />
-            </CheckboxField>
+            <Checkbox className="[--indicator-mt:0] *:gap-x-0 sm:[--indicator-mt:0]" slot="selection" />
           )}
           {typeof children === "function" ? children(values) : children}
         </>

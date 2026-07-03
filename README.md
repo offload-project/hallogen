@@ -140,14 +140,29 @@ import {Button, Avatar} from "@offload-project/hallogen";
 
 Higher-level, Inertia-aware building blocks:
 
-`form-section` · `header` · `resource-clear-filters` · `resource-table` · `breadcrumb-items-render` ·
-`menu-items-render` · `navbar-items-render` · `pagination-render` · `sidebar-items-render` · `svg-html-render`
+`form-section` · `header-package` · `resource-clear-filters` · `resource-filters` · `resource-table` ·
+`breadcrumb-items-render` · `menu-items-render` · `navbar-items-render` · `pagination-render` ·
+`sidebar-items-render` · `svg-html-render`
 
 ### Shared style presets
 
-`tailwind-variants` style definitions shared across components, importable for building custom variants:
+[`tailwind-variants`](https://www.tailwind-variants.org/) style definitions shared across components,
+importable for building your own variants. Available from the barrel or the `shared/<name>` subpath:
 
-`shared/badge-styles` · `shared/button-styles` · `shared/field-styles` · `shared/toggle-styles`
+| Module                 | Exports                                                               |
+|------------------------|-----------------------------------------------------------------------|
+| `shared/badge-styles`  | `badgeStyles`                                                         |
+| `shared/button-styles` | `buttonStyles`                                                        |
+| `shared/field-styles`  | `labelStyles`, `descriptionStyles`, `fieldErrorStyles`, `fieldStyles` |
+| `shared/toggle-styles` | `toggleStyles`                                                        |
+
+```tsx
+import {buttonStyles} from "@offload-project/hallogen/shared/button-styles";
+// or from the barrel: import { buttonStyles } from "@offload-project/hallogen";
+
+// reuse the button's variants on a custom element
+<a className={buttonStyles({variant: "primary", size: "sm"})}>Link button</a>;
+```
 
 ## Hooks
 

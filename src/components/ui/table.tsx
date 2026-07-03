@@ -32,7 +32,7 @@ import { CardDescription, CardTitle } from "@/components/ui/card";
 import { Menu, MenuContent, MenuItem, MenuLabel } from "@/components/ui/menu.tsx";
 import { cx } from "@/lib/primitive";
 import type { ColumnDef } from "@/types";
-import { Checkbox, CheckboxField } from "./checkbox";
+import { Checkbox } from "./checkbox";
 
 interface TableProps extends Omit<TablePrimitiveProps, "className"> {
   allowResize?: boolean;
@@ -178,9 +178,7 @@ const TableHeader = <T extends object>({ children, ref, columns, className, ...p
           data-slot="table-column"
           className={twMerge("first:ps-(--gutter,--spacing(2))", !bleed && "sm:last:pe-1 sm:first:ps-1")}>
           {selectionMode === "multiple" && (
-            <CheckboxField className="gap-x-0" slot="selection">
-              <Checkbox className="col-span-1" />
-            </CheckboxField>
+            <Checkbox className="[--indicator-mt:0] sm:[--indicator-mt:0]" slot="selection" />
           )}
         </Column>
       )}
@@ -231,9 +229,7 @@ const TableRow = <T extends object>({ children, className, columns, id, ref, ...
       )}
       {selectionBehavior === "toggle" && (
         <TableCell className="px-0">
-          <CheckboxField className="gap-x-0" slot="selection">
-            <Checkbox className="col-span-1" />
-          </CheckboxField>
+          <Checkbox className="[--indicator-mt:0] sm:[--indicator-mt:0]" slot="selection" />
         </TableCell>
       )}
       <Collection items={columns}>{children}</Collection>

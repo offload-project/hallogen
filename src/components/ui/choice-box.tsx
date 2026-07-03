@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 import type { VariantProps } from "tailwind-variants";
 import { tv } from "tailwind-variants";
 import { cx } from "@/lib/primitive";
-import { Checkbox, CheckboxField } from "./checkbox";
+import { Checkbox } from "./checkbox";
 
 const choiceBoxStyles = tv({
   base: "grid [--gutter:--spacing(4)]",
@@ -166,11 +166,10 @@ const ChoiceBoxItem = ({ className, label, description, children, ...props }: Ch
           <>
             {content}
             {selectionMode === "multiple" && (
-              <CheckboxField
+              <Checkbox
+                className="col-start-2 self-start group-has-[svg:not([data-slot=check-indicator])]:col-start-3 group-has-data-[slot=avatar]:col-start-3"
                 slot="selection"
-                className="col-start-2 gap-x-0 self-start group-has-[svg:not([data-slot=check-indicator])]:col-start-3 group-has-data-[slot=avatar]:col-start-3">
-                <Checkbox className="col-span-1" />
-              </CheckboxField>
+              />
             )}
           </>
         );
