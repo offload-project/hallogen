@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.1 - 2026-07-03
+
+### Fixed
+- Add form input [#11](https://github.com/offload-project/hallogen/pull/11)
+
 ## v0.3.0 - 2026-07-03
 
 ### Other
