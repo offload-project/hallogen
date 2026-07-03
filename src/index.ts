@@ -1,5 +1,5 @@
 export * from "./components/composite/form-section.tsx";
-export * from "./components/composite/header.tsx";
+export * from "./components/composite/header-package.tsx";
 export * from "./components/composite/render/breadcrumb-items-render.tsx";
 export * from "./components/composite/render/menu-items-render.tsx";
 export * from "./components/composite/render/navbar-items-render.tsx";
