@@ -113,5 +113,12 @@ const ToolbarSeparator = ({ className, ...props }: ToolbarSeparatorProps) => {
   );
 };
 
-export type { ToggleItemProps, ToolbarGroupProps, ToolbarProps, ToolbarSeparatorProps };
+function ToolbarLeft(props: GroupProps) {
+  return <ToolbarGroup {...props} />;
+}
+function ToolbarRight({ className, ...props }: GroupProps) {
+  return <ToolbarGroup {...props} className={cx("flex grow justify-end", className)} />;
+}
+
+export type { ToggleItemProps, ToolbarGroupProps, ToolbarLeft, ToolbarProps, ToolbarRight, ToolbarSeparatorProps };
 export { Toolbar, ToolbarGroup, ToolbarItem, ToolbarSeparator };
