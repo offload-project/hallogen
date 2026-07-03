@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.1 - 2026-07-03
+
+### Fixed
+- Add action prop to header package [#7](https://github.com/offload-project/hallogen/pull/7)
+
 ## v0.2.0 - 2026-07-03
 
 ### Other
