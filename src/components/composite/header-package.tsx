@@ -4,7 +4,19 @@ import { Heading } from "@/components/ui/heading.tsx";
 import { Text } from "@/components/ui/text.tsx";
 import type { HeaderProps } from "@/types";
 
-export function HeaderPackage({ title, description, level, className, children, ...props }: HeaderProps) {
+interface HeaderPackageProps extends HeaderProps {
+  action?: ReactNode;
+}
+
+export function HeaderPackage({
+  title,
+  description,
+  level,
+  action,
+  className,
+  children,
+  ...props
+}: HeaderPackageProps) {
   return (
     <div
       className={twMerge(
@@ -17,6 +29,7 @@ export function HeaderPackage({ title, description, level, className, children, 
       ) : (
         children
       )}
+      {action && <HeaderAction>{action}</HeaderAction>}
     </div>
   );
 }
