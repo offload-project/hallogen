@@ -1,4 +1,4 @@
-import { ChevronsDownUpIcon } from "lucide-react";
+import { PlusIcon } from "lucide-react";
 import { Children, isValidElement, type ReactElement, type ReactNode, useMemo, useRef } from "react";
 import { Autocomplete, useFilter } from "react-aria-components/Autocomplete";
 import { ListBox } from "react-aria-components/ListBox";
@@ -95,7 +95,7 @@ function MultipleSelect<T extends OptionBase>({
               variant="secondary"
               size="sq-xs"
               className="self-end rounded-[calc(var(--radius-lg)-(--spacing(1)))]">
-              <ChevronsDownUpIcon />
+              <PlusIcon />
             </Button>
           </div>
           <PopoverContent
