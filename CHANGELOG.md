@@ -3,6 +3,15 @@
 ## v0.3.1 - 2026-07-03
 
 ### Fixed
+- Project imports in resource filters [#13](https://github.com/offload-project/hallogen/pull/13)
+- Add form input [#11](https://github.com/offload-project/hallogen/pull/11)
+
+### Other
+- V0.3.1 [#12](https://github.com/offload-project/hallogen/pull/12)
+
+## v0.3.1 - 2026-07-03
+
+### Fixed
 - Add form input [#11](https://github.com/offload-project/hallogen/pull/11)
 
 ## v0.3.0 - 2026-07-03
