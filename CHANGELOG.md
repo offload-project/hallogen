@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.1 - 2026-07-03
+
+### Fixed
+- Multiselect use plus icon [#3](https://github.com/offload-project/hallogen/pull/3)
+
 ## v0.1.0 - 2026-07-03
 
 ### Other
