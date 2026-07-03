@@ -1,9 +1,10 @@
-import { SearchField, SearchInput } from "@offload-project/hallogen/search-field";
-import { Toolbar, ToolbarLeft, ToolbarRight } from "@offload-project/hallogen/toolbar";
 import type { ReactNode, SubmitEvent } from "react";
 import type { Key } from "react-aria-components";
+import { SearchField } from "react-aria-components/SearchField";
 import { ResourceClearFilters } from "@/components/composite/resource-clear-filters";
+import { SearchInput } from "@/components/ui/search-field.tsx";
 import { TableColumnMenu } from "@/components/ui/table.tsx";
+import { Toolbar, ToolbarLeft, ToolbarRight } from "@/components/ui/toolbar.tsx";
 import type { ColumnDef } from "@/types";
 
 interface Props {
