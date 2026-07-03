@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.2.0 - 2026-07-03
+
+### Other
+- Fix/header package import path [#5](https://github.com/offload-project/hallogen/pull/5)
+
 ## v0.1.1 - 2026-07-03
 
 ### Fixed
