@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.3.0 - 2026-07-03
+
+### Other
+- Feat/export shared styles [#9](https://github.com/offload-project/hallogen/pull/9)
+
 ## v0.2.1 - 2026-07-03
 
 ### Fixed
