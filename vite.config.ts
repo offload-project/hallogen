@@ -157,6 +157,11 @@ export default defineConfig({
         ],
         test: {
           name: "storybook",
+          // Browser-mode story tests flake under CI's constrained parallelism
+          // (transient dynamic-import / iframe races). Run serially + retry there;
+          // keep the fast parallel path locally.
+          fileParallelism: !process.env.CI,
+          retry: process.env.CI ? 2 : 0,
           browser: {
             enabled: true,
             headless: true,
