@@ -21,9 +21,12 @@ const Block = ({ color, tooltip, disabledTooltip, defaultBackgroundColor = "bg-s
   ) : (
     <Tooltip isOpen={open} onOpenChange={setOpen} delay={0} closeDelay={0}>
       <Pressable onClick={() => setOpen(true)}>
-        <div className="size-full overflow-hidden px-[0.5px] transition first:rounded-s-sm first:ps-0 last:rounded-e-sm last:pe-0 sm:px-px">
+        <button
+          type="button"
+          aria-label={tooltip}
+          className="size-full cursor-pointer overflow-hidden px-[0.5px] transition first:rounded-s-sm first:ps-0 last:rounded-e-sm last:pe-0 sm:px-px">
           <div className={twJoin("size-full rounded-[1px]", color || defaultBackgroundColor, "hover:opacity-50")} />
-        </div>
+        </button>
       </Pressable>
       <TooltipContent arrow={false} offset={10} placement="top" inverse className="px-2 py-1.5 text-xs">
         {tooltip}
@@ -40,8 +43,8 @@ interface TrackerProps extends ComponentProps<"div">, Pick<TrackerBlockProps, "d
 const Tracker = ({ data = [], disabledTooltip = false, className, ref, ...props }: TrackerProps) => {
   return (
     <div ref={ref} className={twMerge("group flex h-8 w-full items-center", className)} {...props}>
-      {data.map((props, index) => (
-        <Block disabledTooltip={disabledTooltip} key={props.key ?? index} {...props} />
+      {data.map(({ key, ...block }, index) => (
+        <Block disabledTooltip={disabledTooltip} key={key ?? index} {...block} />
       ))}
     </div>
   );

@@ -99,7 +99,7 @@ interface DropdownItemProps extends ListBoxItemProps {
 }
 
 const DropdownItem = ({ className, children, variant, ...props }: DropdownItemProps) => {
-  const textValue = typeof children === "string" ? children : undefined;
+  const textValue = typeof children === "string" ? children : props.textValue;
   return (
     <ListBoxItemPrimitive
       textValue={textValue}

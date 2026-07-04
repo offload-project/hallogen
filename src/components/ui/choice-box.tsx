@@ -128,7 +128,7 @@ interface ChoiceBoxItemProps extends GridListItemProps, VariantProps<typeof choi
 }
 
 const ChoiceBoxItem = ({ className, label, description, children, ...props }: ChoiceBoxItemProps) => {
-  const textValue = typeof children === "string" ? children : undefined;
+  const textValue = typeof children === "string" ? children : (props.textValue ?? label);
   const { columns, isReadOnly } = useChoiceBoxContext();
   return (
     <GridListItem

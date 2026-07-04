@@ -12,7 +12,7 @@ const meta = {
         New file
       </DropdownItem>
       <DropdownItem id="copy">Copy link</DropdownItem>
-      <DropdownItem id="edit">
+      <DropdownItem id="edit" textValue="Edit">
         <DropdownLabel>Edit</DropdownLabel>
         <DropdownDescription>Make changes to this item</DropdownDescription>
       </DropdownItem>
