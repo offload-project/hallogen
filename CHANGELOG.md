@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.0 - 2026-07-04
+
+### Other
+- Feat/fire toasts [#18](https://github.com/offload-project/hallogen/pull/18)
+
 ## v0.3.2 - 2026-07-04
 
 ### Changed
