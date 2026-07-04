@@ -9,7 +9,13 @@ permissions:
   pull-requests: write
 
 jobs:
+  # Re-run lint + tests at merge time; the release is gated on them passing.
+  ci:
+    if: github.event.pull_request.merged == true
+    uses: ./.github/workflows/ci.yml
+
   release:
+    needs: ci
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
