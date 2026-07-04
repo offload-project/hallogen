@@ -31,7 +31,7 @@ bun add react react-dom @inertiajs/react lucide-react tailwindcss
 |------------------------|---------|-----------|-----------------------------------------------------------------------------------|
 | `react`                | `^19`   | required  | everything                                                                        |
 | `react-dom`            | `^19`   | required  | everything                                                                        |
-| `@inertiajs/react`     | `^3`    | required  | navbar, sidebar, pagination, `link`, composite render components, page-prop hooks |
+| `@inertiajs/react`     | `^3`    | required  | navbar, sidebar, pagination, `link`, composite render components, filter/URL hooks |
 | `lucide-react`         | `^1`    | required  | component icons                                                                   |
 | `tailwindcss`          | `^4`    | required  | styling                                                                           |
 | `recharts`             | `^3`    | optional  | `area-chart`, `bar-chart`, `line-chart`, `pie-chart`, `chart`                     |
@@ -178,6 +178,7 @@ Import from `@offload-project/hallogen/hooks/<name>`:
 | `use-command-menu`              | Open/close state for `command-menu`                               |
 | `use-confirm-action`            | Confirmation-dialog flow for destructive actions                  |
 | `use-current-url`               | Current Inertia URL helpers                                       |
+| `use-index-filters`             | Inertia filter/sort wiring for index pages (`applyFilters`, `sortDescriptor`, `onSortChange`, `onSearchSubmit`) |
 | `use-initials`                  | Derive initials from a name (for `avatar`)                        |
 | `use-media-query`               | Subscribe to a CSS media query                                    |
 | `use-mobile`                    | Boolean for the mobile breakpoint                                 |

@@ -326,6 +326,10 @@
       "types": "./dist/hooks/use-current-url.d.ts",
       "import": "./dist/hooks/use-current-url.js"
     },
+    "./hooks/use-index-filters": {
+      "types": "./dist/hooks/use-index-filters.d.ts",
+      "import": "./dist/hooks/use-index-filters.js"
+    },
     "./hooks/use-initials": {
       "types": "./dist/hooks/use-initials.d.ts",
       "import": "./dist/hooks/use-initials.js"
