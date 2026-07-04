@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.3.2 - 2026-07-04
+
+### Changed
+- Fox ci workflow [#16](https://github.com/offload-project/hallogen/pull/16)
+
+### Other
+- Fix/resource filters [#15](https://github.com/offload-project/hallogen/pull/15)
+
 ## v0.3.1 - 2026-07-03
 
 ### Fixed

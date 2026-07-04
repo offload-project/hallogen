@@ -1,7 +1,7 @@
 {
   "name": "@offload-project/hallogen",
   "description": "",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
