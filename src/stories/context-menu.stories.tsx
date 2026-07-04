@@ -18,7 +18,7 @@ const meta = {
       <ContextMenuTrigger className="grid h-32 w-64 place-content-center rounded-lg border border-dashed text-muted-fg text-sm">
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent>
+      <ContextMenuContent aria-label="Actions">
         <ContextMenuItem id="cut">Cut</ContextMenuItem>
         <ContextMenuItem id="copy">Copy</ContextMenuItem>
         <ContextMenuSeparator />
