@@ -79,3 +79,9 @@ export interface HeaderProps extends HTMLAttributes<HTMLDivElement>, HeadingType
   title?: string;
   description?: string;
 }
+
+export interface ToastMessage {
+  type: "success" | "info" | "warning" | "error";
+  title?: string;
+  message: string;
+}

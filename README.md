@@ -182,7 +182,6 @@ Import from `@offload-project/hallogen/hooks/<name>`:
 | `use-media-query`               | Subscribe to a CSS media query                                    |
 | `use-mobile`                    | Boolean for the mobile breakpoint                                 |
 | `use-navbar`                    | Navbar open/collapsed state                                       |
-| `use-page-props`                | Typed access to Inertia page props                                |
 | `use-sidebar`                   | Sidebar open/collapsed state                                      |
 | `use-table-context`             | Access `resource-table` context                                   |
 
@@ -190,13 +189,14 @@ Import from `@offload-project/hallogen/hooks/<name>`:
 
 Import from `@offload-project/hallogen/lib/<name>`:
 
-| Module          | Exports                                                                                                                       |
-|-----------------|-------------------------------------------------------------------------------------------------------------------------------|
-| `lib/cn`        | `cn()` — merge class names (clsx + tailwind-merge)                                                                            |
-| `lib/primitive` | `cx()` — class-name composer for variant primitives                                                                           |
-| `lib/number`    | `formatNumber`, `formatCurrency`, `formatKilo`, `formatFileSize`                                                              |
-| `lib/date`      | `formatDate`, `formatDatetime`, `formatHumans`, `formatAge`, `calculateDuration`, `parseTimeStringToTimeObject`, `dayOfWeeks` |
-| `lib/filter`    | `parseSortDescriptor`, `handleSearch`, `handleSortChange`, `hasActiveFilters`                                                 |
+| Module            | Exports                                                                                                                       |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `lib/cn`          | `cn()` — merge class names (clsx + tailwind-merge)                                                                            |
+| `lib/primitive`   | `cx()` — class-name composer for variant primitives                                                                           |
+| `lib/number`      | `formatNumber`, `formatCurrency`, `formatKilo`, `formatFileSize`                                                              |
+| `lib/date`        | `formatDate`, `formatDatetime`, `formatHumans`, `formatAge`, `calculateDuration`, `parseTimeStringToTimeObject`, `dayOfWeeks` |
+| `lib/filter`      | `parseSortDescriptor`, `handleSearch`, `handleSortChange`, `hasActiveFilters`                                                 |
+| `lib/fire-toasts` | `fireToasts(toasts)` — fire an array of `ToastMessage`s via `sonner` (needs the `sonner` peer)                                |
 
 ## Development
 

@@ -342,10 +342,6 @@
       "types": "./dist/hooks/use-navbar.d.ts",
       "import": "./dist/hooks/use-navbar.js"
     },
-    "./hooks/use-page-props": {
-      "types": "./dist/hooks/use-page-props.d.ts",
-      "import": "./dist/hooks/use-page-props.js"
-    },
     "./hooks/use-sidebar": {
       "types": "./dist/hooks/use-sidebar.d.ts",
       "import": "./dist/hooks/use-sidebar.js"
@@ -381,6 +377,10 @@
     "./lib/filter": {
       "types": "./dist/lib/filter.d.ts",
       "import": "./dist/lib/filter.js"
+    },
+    "./lib/fire-toasts": {
+      "types": "./dist/lib/fire-toasts.d.ts",
+      "import": "./dist/lib/fire-toasts.js"
     },
     "./lib/number": {
       "types": "./dist/lib/number.d.ts",
