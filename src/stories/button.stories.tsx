@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     variant: {
       control: "select",
-      options: ["primary", "secondary", "warning", "danger", "success", "outline", "plain"],
+      options: ["primary", "secondary", "accent", "warning", "danger", "success", "outline", "plain"],
     },
     size: {
       control: "select",
@@ -52,6 +52,9 @@ export const Variants: Story = {
       </Button>
       <Button {...args} variant="plain">
         Plain
+      </Button>
+      <Button {...args} variant="accent">
+        Accent
       </Button>
     </div>
   ),
