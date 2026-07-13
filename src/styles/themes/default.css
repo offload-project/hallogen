@@ -1,4 +1,16 @@
+/* Fonts are referenced by name only — load them in your app (see README). */
 :root {
+  --font-sans:
+    "Google Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-display:
+    "Google Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    "Google Sans Code", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+
   --radius: 0.625rem;
 
   --bg: var(--color-white);
@@ -21,6 +33,9 @@
 
   --accent: oklch(0.92 0.004 286.32);
   --accent-fg: oklch(0.141 0.005 285.823);
+
+  --accent-solid: var(--color-violet-600);
+  --accent-solid-fg: var(--color-white);
 
   --muted: var(--color-zinc-100);
   --muted-fg: var(--color-zinc-600);
@@ -51,6 +66,7 @@
 
   --navbar: oklch(0.988 0 0);
   --navbar-fg: var(--color-zinc-950);
+  --navbar-indicator: var(--accent);
 
   --sidebar: oklch(0.985 0 0);
   --sidebar-fg: oklch(0.141 0.005 285.823);
@@ -67,6 +83,10 @@
   --chart-3: oklch(0.707 0.165 254.624);
   --chart-4: oklch(0.809 0.105 251.813);
   --chart-5: oklch(0.882 0.059 254.128);
+
+  /* Decorative gradient tokens (use via bg-[image:var(--gradient-aurora)]) */
+  --gradient-aurora: linear-gradient(135deg, var(--color-primary), var(--color-accent-solid));
+  --gradient-warm: linear-gradient(135deg, var(--color-warning), var(--color-danger));
 
   ::selection {
     background-color: var(--color-primary-subtle);
@@ -92,6 +112,9 @@
 
   --accent: oklch(0.32 0.013 285.805);
   --accent-fg: oklch(0.985 0 0);
+
+  --accent-solid: var(--color-violet-500);
+  --accent-solid-fg: var(--color-white);
 
   --muted: var(--color-zinc-900);
   --muted-fg: var(--color-zinc-400);
@@ -139,4 +162,7 @@
   --chart-3: oklch(0.707 0.165 254.624);
   --chart-4: oklch(0.809 0.105 251.813);
   --chart-5: oklch(0.882 0.059 254.128);
+
+  --gradient-aurora: linear-gradient(135deg, var(--color-primary), var(--color-accent-solid));
+  --gradient-warm: linear-gradient(135deg, var(--color-warning), var(--color-danger));
 }

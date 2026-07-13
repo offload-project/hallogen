@@ -17,6 +17,8 @@ export const buttonStyles = tv({
         "[--btn-bg:var(--color-primary)] [--btn-fg:var(--color-primary-fg)] [--btn-icon-active:var(--primary-fg)]/80 [--btn-icon:var(--primary-fg)]/60 [--btn-overlay:color-mix(in_oklab,var(--color-primary-fg)_10%,var(--color-primary)_90%)]",
       secondary:
         "[--btn-bg:var(--color-secondary)] [--btn-fg:var(--color-secondary-fg)] [--btn-icon:var(--color-muted-fg)] [--btn-outline:var(--color-secondary-fg)] [--btn-overlay:color-mix(in_oklab,var(--color-secondary-fg)_10%,var(--color-secondary)_90%)] [--btn-ring:var(--color-muted-fg)]/20",
+      accent:
+        "[--btn-bg:var(--color-accent-solid)] [--btn-fg:var(--color-accent-solid-fg)] [--btn-icon-active:var(--color-accent-solid-fg)]/80 [--btn-icon:var(--color-accent-solid-fg)]/60 [--btn-overlay:color-mix(in_oklab,var(--color-accent-solid-fg)_10%,var(--color-accent-solid)_90%)]",
       warning:
         "[--btn-bg:var(--color-warning)] [--btn-fg:var(--color-warning-fg)] [--btn-icon:var(--color-warning-fg)]/60 [--btn-overlay:color-mix(in_oklab,var(--color-white)_10%,var(--color-warning)_90%)]",
       danger:

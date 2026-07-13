@@ -7,16 +7,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans:
-    "SF Pro Text", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  --font-display:
-    "SF Pro Display", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
-  --font-serif: "Instrument Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono:
-    "Geist Mono", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-    "Noto Color Emoji";
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 
   --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv05", "cv11";
   --font-mono--font-feature-settings: "ss02", "zero";
@@ -42,6 +36,10 @@
 
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
+
+  /* Solid accent (colored CTA — the "accent" button variant) */
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-solid-fg: var(--accent-solid-fg);
 
   --color-success: var(--success);
   --color-success-fg: var(--success-fg);
@@ -71,6 +69,7 @@
 
   --color-navbar: var(--navbar);
   --color-navbar-fg: var(--navbar-fg);
+  --color-navbar-indicator: var(--navbar-indicator);
 
   --color-sidebar: var(--sidebar);
   --color-sidebar-fg: var(--sidebar-fg);
@@ -137,6 +136,14 @@
   body {
     background-color: var(--color-bg);
     color: var(--color-fg);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
   }
 }
 
