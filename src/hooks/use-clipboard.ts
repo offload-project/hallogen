@@ -1,37 +1,32 @@
-import { useCallback, useRef, useState } from "react";
+// Credit: https://usehooks-ts.com/
+import { useState } from "react";
 
-export function useClipboard(resetDelay: number = 2000): {
-  copied: boolean;
-  copy: (value: string) => Promise<boolean>;
-} {
-  const [copied, setCopied] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+export type CopiedValue = string | null;
+export type CopyFn = (text: string) => Promise<boolean>;
+export type UseClipboardReturn = [CopiedValue, CopyFn];
 
-  function copiedfunc() {
-    setCopied(true);
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+export function useClipboard(): UseClipboardReturn {
+  const [copiedText, setCopiedText] = useState<CopiedValue>(null);
+
+  const copy: CopyFn = async (text) => {
+    if (!navigator?.clipboard) {
+      console.warn("Clipboard not supported");
+
+      return false;
     }
-    timeoutRef.current = setTimeout(() => setCopied(false), resetDelay);
-  }
 
-  // biome-ignore lint/correctness/useExhaustiveDependencies: markCopied would trigger unnecessary rerenders
-  const copy = useCallback(
-    async (value: string): Promise<boolean> => {
-      if (!window.isSecureContext || !navigator?.clipboard?.writeText) {
-        return false;
-      }
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedText(text);
 
-      try {
-        await navigator.clipboard.writeText(value);
-        copiedfunc();
-        return true;
-      } catch {
-        return false;
-      }
-    },
-    [resetDelay],
-  );
+      return true;
+    } catch (error) {
+      console.warn("Copy failed", error);
+      setCopiedText(null);
 
-  return { copied, copy };
+      return false;
+    }
+  };
+
+  return [copiedText, copy];
 }
