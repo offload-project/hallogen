@@ -1,0 +1,15 @@
+/* Default palette — also exposes utilities such as bg-cerulean-blue-600. */
+
+@theme {
+  --color-cerulean-blue-50: oklch(96.94% 0.01 264.55);
+  --color-cerulean-blue-100: oklch(92.76% 0.03 267.54);
+  --color-cerulean-blue-200: oklch(87.46% 0.05 264.85);
+  --color-cerulean-blue-300: oklch(79.30% 0.08 262.6);
+  --color-cerulean-blue-400: oklch(68.79% 0.12 263.48);
+  --color-cerulean-blue-500: oklch(59.28% 0.17 266.83);
+  --color-cerulean-blue-600: oklch(51.66% 0.19 268.62);
+  --color-cerulean-blue-700: oklch(47.94% 0.2 269.88);
+  --color-cerulean-blue-800: oklch(40.92% 0.16 271.64);
+  --color-cerulean-blue-900: oklch(36.67% 0.12 272.43);
+  --color-cerulean-blue-950: oklch(27.67% 0.08 275.12);
+}
