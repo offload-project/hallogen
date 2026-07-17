@@ -33,7 +33,7 @@ export const SnippetTab = ({ className, ...props }: ComponentProps<typeof Tab>) 
 export const SnippetTabPanels = TabPanels;
 
 export function SnippetTabPanel({ className, children, ...props }: TabPanelProps) {
-  const { copy, copied } = useClipboard();
+  const [copied, copy] = useClipboard();
   return (
     <TabPanel className={cx("mt-0 px-4 py-2 text-sm dark:bg-secondary/70", className)} {...props}>
       {(values) => (

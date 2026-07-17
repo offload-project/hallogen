@@ -100,7 +100,7 @@ export function CodeBlockCopyButton({
   ...props
 }: CodeBlockCopyButtonProps) {
   const { code } = use(CodeBlockContext);
-  const { copy, copied } = useClipboard();
+  const [copied, copy] = useClipboard();
 
   return (
     <Button
