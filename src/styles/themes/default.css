@@ -1,5 +1,8 @@
 /* Fonts are referenced by name only — load them in your app (see README). */
 :root {
+  color-scheme: light;
+
+  /* Typography */
   --font-sans:
     "Google Sans", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
     "Noto Color Emoji";
@@ -13,156 +16,158 @@
 
   --radius: 0.625rem;
 
-  --bg: var(--color-white);
+  /* Canvas and elevated surfaces */
+  --bg: var(--color-zinc-50);
   --fg: var(--color-zinc-950);
-
-  --card: oklch(1 0 0);
-  --card-fg: oklch(0.21 0.006 285.885);
-
-  --primary: var(--color-blue-700);
-  --primary-fg: var(--color-white);
-
-  --primary-subtle: color-mix(in srgb, var(--color-blue-500) 15%, transparent);
-  --primary-subtle-fg: var(--color-blue-700);
-
-  --secondary: var(--color-zinc-100);
-  --secondary-fg: var(--color-zinc-950);
-
+  --card: var(--color-white);
+  --card-fg: var(--color-zinc-950);
   --overlay: var(--color-white);
   --overlay-fg: var(--color-zinc-950);
 
-  --accent: oklch(0.92 0.004 286.32);
-  --accent-fg: oklch(0.141 0.005 285.823);
+  /* Brand and interaction */
+  --primary: var(--color-cerulean-blue-600);
+  --primary-fg: var(--color-white);
+  --primary-subtle: var(--color-cerulean-blue-100);
+  --primary-subtle-fg: var(--color-cerulean-blue-800);
 
-  --accent-solid: var(--color-violet-600);
+  --secondary: var(--color-zinc-100);
+  --secondary-fg: var(--color-zinc-900);
+
+  --accent: var(--color-cerulean-blue-50);
+  --accent-fg: var(--color-cerulean-blue-900);
+  --accent-solid: var(--color-cerulean-blue-700);
   --accent-solid-fg: var(--color-white);
 
   --muted: var(--color-zinc-100);
   --muted-fg: var(--color-zinc-600);
 
+  --border: var(--color-zinc-200);
+  --input: var(--color-zinc-300);
+  --ring: var(--color-cerulean-blue-500);
+
+  /* Feedback */
   --success: var(--color-emerald-700);
   --success-fg: var(--color-white);
-  --success-subtle: color-mix(in srgb, var(--color-emerald-500) 15%, transparent);
-  --success-subtle-fg: var(--color-emerald-700);
+  --success-subtle: var(--color-emerald-50);
+  --success-subtle-fg: var(--color-emerald-800);
 
-  --info: var(--color-sky-500);
+  --info: var(--color-sky-700);
   --info-fg: var(--color-white);
-  --info-subtle: color-mix(in srgb, var(--color-sky-500) 15%, transparent);
-  --info-subtle-fg: var(--color-sky-700);
+  --info-subtle: var(--color-sky-50);
+  --info-subtle-fg: var(--color-sky-800);
 
   --warning: var(--color-amber-400);
   --warning-fg: var(--color-amber-950);
-  --warning-subtle: color-mix(in srgb, var(--color-amber-500) 20%, transparent);
-  --warning-subtle-fg: var(--color-amber-800);
+  --warning-subtle: var(--color-amber-50);
+  --warning-subtle-fg: var(--color-amber-900);
 
   --danger: var(--color-red-600);
   --danger-fg: var(--color-white);
-  --danger-subtle: color-mix(in srgb, var(--color-red-500) 15%, transparent);
-  --danger-subtle-fg: var(--color-red-700);
+  --danger-subtle: var(--color-red-50);
+  --danger-subtle-fg: var(--color-red-800);
 
-  --border: var(--color-zinc-300);
-  --input: var(--color-zinc-300);
-  --ring: var(--primary);
-
-  --navbar: oklch(0.988 0 0);
+  /* Navigation */
+  --navbar: var(--color-white);
   --navbar-fg: var(--color-zinc-950);
-  --navbar-indicator: var(--accent);
+  --navbar-indicator: var(--primary);
 
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-fg: oklch(0.141 0.005 285.823);
+  --sidebar: var(--color-cerulean-blue-50);
+  --sidebar-fg: var(--color-zinc-950);
+  --sidebar-primary: var(--color-cerulean-blue-100);
+  --sidebar-primary-fg: var(--color-cerulean-blue-900);
+  --sidebar-accent: var(--color-white);
+  --sidebar-accent-fg: var(--color-zinc-950);
+  --sidebar-border: var(--color-cerulean-blue-200);
+  --sidebar-ring: var(--ring);
 
-  --sidebar-primary: var(--primary-subtle);
-  --sidebar-primary-fg: var(--primary-subtle-fg);
-  --sidebar-accent: oklch(0.92 0.004 286.32);
-  --sidebar-accent-fg: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.901 0.006 286.286);
-  --sidebar-ring: oklch(0.546 0.245 262.881);
+  /* Categorical data colors: brand first, then distinct supporting hues. */
+  --chart-1: var(--color-cerulean-blue-600);
+  --chart-2: var(--color-teal-600);
+  --chart-3: var(--color-amber-600);
+  --chart-4: var(--color-violet-600);
+  --chart-5: var(--color-rose-600);
 
-  --chart-1: oklch(0.546 0.245 262.881);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.707 0.165 254.624);
-  --chart-4: oklch(0.809 0.105 251.813);
-  --chart-5: oklch(0.882 0.059 254.128);
-
-  /* Decorative gradient tokens (use via bg-[image:var(--gradient-aurora)]) */
-  --gradient-aurora: linear-gradient(135deg, var(--color-primary), var(--color-accent-solid));
-  --gradient-warm: linear-gradient(135deg, var(--color-warning), var(--color-danger));
-
-  ::selection {
-    background-color: var(--color-primary-subtle);
-    color: var(--color-primary-subtle-fg);
-  }
+  /* Decorative gradients */
+  --gradient-aurora: linear-gradient(135deg, var(--primary), var(--chart-2));
+  --gradient-warm: linear-gradient(135deg, var(--warning), var(--danger));
 }
 
 .dark {
+  color-scheme: dark;
+
+  /* Canvas and elevated surfaces */
   --bg: var(--color-zinc-950);
   --fg: var(--color-zinc-50);
+  --card: var(--color-zinc-900);
+  --card-fg: var(--color-zinc-50);
+  --overlay: var(--color-zinc-900);
+  --overlay-fg: var(--color-zinc-50);
 
-  --card: oklch(0.21 0.006 285.885);
-  --card-fg: oklch(0.985 0 0);
-
-  --primary: oklch(0.546 0.245 262.881);
-  --primary-fg: oklch(1 0 0);
-
-  --primary-subtle: color-mix(in srgb, var(--color-blue-500) 10%, transparent);
-  --primary-subtle-fg: var(--color-blue-400);
+  /* Brand and interaction */
+  --primary: var(--color-cerulean-blue-400);
+  --primary-fg: var(--color-cerulean-blue-950);
+  --primary-subtle: var(--color-cerulean-blue-950);
+  --primary-subtle-fg: var(--color-cerulean-blue-200);
 
   --secondary: var(--color-zinc-800);
   --secondary-fg: var(--color-zinc-50);
 
-  --accent: oklch(0.32 0.013 285.805);
-  --accent-fg: oklch(0.985 0 0);
-
-  --accent-solid: var(--color-violet-500);
-  --accent-solid-fg: var(--color-white);
+  --accent: var(--color-cerulean-blue-950);
+  --accent-fg: var(--color-cerulean-blue-100);
+  --accent-solid: var(--color-cerulean-blue-300);
+  --accent-solid-fg: var(--color-cerulean-blue-950);
 
   --muted: var(--color-zinc-900);
   --muted-fg: var(--color-zinc-400);
 
-  --overlay: oklch(0.234 0.006 286.033);
-  --overlay-fg: var(--color-zinc-50);
+  --border: var(--color-zinc-800);
+  --input: var(--color-zinc-700);
+  --ring: var(--color-cerulean-blue-400);
 
-  --success: var(--color-emerald-600);
-  --success-fg: var(--color-white);
-  --success-subtle: color-mix(in srgb, var(--color-emerald-500) 10%, transparent);
-  --success-subtle-fg: var(--color-emerald-400);
+  /* Feedback */
+  --success: var(--color-emerald-400);
+  --success-fg: var(--color-emerald-950);
+  --success-subtle: var(--color-emerald-950);
+  --success-subtle-fg: var(--color-emerald-300);
 
-  --info: var(--color-sky-500);
-  --info-fg: var(--color-white);
-  --info-subtle: color-mix(in srgb, var(--color-sky-500) 15%, transparent);
+  --info: var(--color-sky-400);
+  --info-fg: var(--color-sky-950);
+  --info-subtle: var(--color-sky-950);
   --info-subtle-fg: var(--color-sky-300);
 
   --warning: var(--color-amber-400);
   --warning-fg: var(--color-amber-950);
-  --warning-subtle: color-mix(in srgb, var(--color-amber-500) 10%, transparent);
-  --warning-subtle-fg: var(--color-amber-400);
+  --warning-subtle: var(--color-amber-950);
+  --warning-subtle-fg: var(--color-amber-300);
 
-  --danger: var(--color-red-600);
-  --danger-fg: var(--color-red-50);
-  --danger-subtle: color-mix(in srgb, var(--color-red-500) 10%, transparent);
-  --danger-subtle-fg: var(--color-red-400);
+  --danger: var(--color-red-400);
+  --danger-fg: var(--color-red-950);
+  --danger-subtle: var(--color-red-950);
+  --danger-subtle-fg: var(--color-red-300);
 
-  --border: oklch(0.3 0.013 285.805);
-  --input: oklch(0.31 0.013 285.805);
-
-  --navbar: oklch(0.17 0.006 285.885);
+  /* Navigation */
+  --navbar: var(--color-zinc-900);
   --navbar-fg: var(--color-zinc-50);
+  --navbar-indicator: var(--primary);
 
-  --sidebar: oklch(0.18 0.006 285.885);
-  --sidebar-fg: oklch(0.985 0 0);
-  --sidebar-primary: var(--primary-subtle);
-  --sidebar-primary-fg: var(--primary-subtle-fg);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-fg: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.274 0.006 286.033);
-  --sidebar-ring: oklch(0.546 0.245 262.881);
+  --sidebar: var(--color-zinc-900);
+  --sidebar-fg: var(--color-zinc-50);
+  --sidebar-primary: var(--color-cerulean-blue-950);
+  --sidebar-primary-fg: var(--color-cerulean-blue-200);
+  --sidebar-accent: var(--color-zinc-800);
+  --sidebar-accent-fg: var(--color-zinc-50);
+  --sidebar-border: var(--color-zinc-800);
+  --sidebar-ring: var(--ring);
 
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.707 0.165 254.624);
-  --chart-4: oklch(0.809 0.105 251.813);
-  --chart-5: oklch(0.882 0.059 254.128);
+  /* Categorical data colors */
+  --chart-1: var(--color-cerulean-blue-400);
+  --chart-2: var(--color-teal-400);
+  --chart-3: var(--color-amber-400);
+  --chart-4: var(--color-violet-400);
+  --chart-5: var(--color-rose-400);
+}
 
-  --gradient-aurora: linear-gradient(135deg, var(--color-primary), var(--color-accent-solid));
-  --gradient-warm: linear-gradient(135deg, var(--color-warning), var(--color-danger));
+::selection {
+  background-color: var(--primary-subtle);
+  color: var(--primary-subtle-fg);
 }
