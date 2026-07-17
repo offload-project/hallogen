@@ -1,8 +1,8 @@
 name: lint/test
 
 on:
-  push:
-    branches: [ main ]
+  # Runs on PRs (to gate merges) and when the Release workflow calls it (to gate
+  # publishing). No `push` trigger, so it doesn't re-run standalone on merges to main.
   pull_request:
   workflow_call:
 
