@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.5.0 - 2026-07-17
+
+### Other
+- rel-71726 [#20](https://github.com/offload-project/hallogen/pull/20)
+
 ## v0.4.0 - 2026-07-04
 
 ### Other
