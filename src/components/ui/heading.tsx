@@ -10,11 +10,11 @@ const Heading = ({ className, level = 1, ...props }: HeadingProps) => {
   return (
     <Element
       className={twMerge(
-        "text-balance font-display font-semibold text-fg tracking-tight",
-        level === 1 && "text-xl/8 sm:text-2xl/8",
-        level === 2 && "text-lg/6 sm:text-xl/8",
-        level === 3 && "text-base/6 sm:text-lg/6",
-        level === 4 && "text-base/6",
+        "text-balance font-display font-medium text-fg tracking-tight",
+        level === 1 && "text-3xl sm:text-4xl",
+        level === 2 && "text-2xl sm:text-3xl",
+        level === 3 && "text-xl sm:text-2xl",
+        level === 4 && "text-xl",
         className,
       )}
       {...props}
